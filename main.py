@@ -2,7 +2,7 @@ import streamlit as st
 import about as ab
 import steering as sg
 import developers as de
-
+import shooter as sh
 
 if "page" not in st.session_state:
     st.session_state.page = 'web'
@@ -55,12 +55,15 @@ def web():
 
     with col2:
         st.markdown("<div style='text-align: right;'><h3>:Virtual Gun</h3></div>", unsafe_allow_html=True)
-        st.button("Start Virtual Gun", type="primary",use_container_width=True)
+        shooter_button=st.button("Start Virtual Gun", type="primary",use_container_width=True)
         st.markdown("""<p>Step into the action with our virtual gun,
                     leveraging the latest in OpenCV and MediaPipe technology.
                     Immerse yourself in dynamic gameplay as you wield
                     virtual firepower with precision and realism, bringing gaming
                     to a whole new level of immersion.</p>""",unsafe_allow_html=True)
+        if shooter_button:
+            st.session_state.page="shooter"
+            st.rerun()
 if st.session_state.page == 'web':
     web()
         
@@ -73,3 +76,6 @@ if st.session_state.page=="steering":
 
 if st.session_state.page=="developers":
     de.dev()
+
+if st.session_state.page=="shooter":
+    sh.shooter()
