@@ -128,7 +128,7 @@ def steering():
                         keyinput.release_key('s')
                         keyinput.release_key('d')
                         keyinput.press_key('a')
-                        cv2.putText(image, "Turn left", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+                        # cv2.putText(image, "Turn left", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
                         cv2.line(image, (int(xbp), int(ybp)), (int(xm), int(ym)), (195, 255, 62), 20)
                     elif co[1][0] > co[0][0] and co[1][1] > co[0][1] and co[1][1] - co[0][1] > 65:
                         if st.session_state.result != ":orange[turning left]":
@@ -136,7 +136,7 @@ def steering():
                         keyinput.release_key('s')
                         keyinput.release_key('d')
                         keyinput.press_key('a')
-                        cv2.putText(image, "Turn left", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+                        # cv2.putText(image, "Turn left", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
                         cv2.line(image, (int(xbp), int(ybp)), (int(xm), int(ym)), (195, 255, 62), 20)
                     elif co[0][0] > co[1][0] and co[1][1] > co[0][1] and co[1][1] - co[0][1] > 65:
                         if st.session_state.result != ":orange[turning right]":
@@ -144,7 +144,7 @@ def steering():
                         keyinput.release_key('s')
                         keyinput.release_key('a')
                         keyinput.press_key('d')
-                        cv2.putText(image, "Turn right", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+                        # cv2.putText(image, "Turn right", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
                         cv2.line(image, (int(xap), int(yap)), (int(xm), int(ym)), (195, 255, 62), 20)
                     elif co[1][0] > co[0][0] and co[0][1] > co[1][1] and co[0][1] - co[1][1] > 65:
                         if st.session_state.result != ":orange[turning right]":
@@ -152,7 +152,7 @@ def steering():
                         keyinput.release_key('s')
                         keyinput.release_key('a')
                         keyinput.press_key('d')
-                        cv2.putText(image, "Turn right", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+                        # cv2.putText(image, "Turn right", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
                         cv2.line(image, (int(xap), int(yap)), (int(xm), int(ym)), (195, 255, 62), 20)
                     else:
                         if st.session_state.result != ":green[moving forward]":
@@ -161,7 +161,7 @@ def steering():
                         keyinput.release_key('a')
                         keyinput.release_key('d')
                         keyinput.press_key('w')
-                        cv2.putText(image, "Keep straight", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+                        # cv2.putText(image, "Keep straight", (50, 50), font, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
                         if ybp > yap:
                             cv2.line(image, (int(xbp), int(ybp)), (int(xm), int(ym)), (195, 255, 62), 20)
                         else:
@@ -174,7 +174,7 @@ def steering():
                     keyinput.release_key('d')
                     keyinput.release_key('w')
                     keyinput.press_key('s')
-                    cv2.putText(image, "Keep back", (50, 50), font, 1.0, (0, 255, 0), 2, cv2.LINE_AA)
+                    # cv2.putText(image, "Keep back", (50, 50), font, 1.0, (0, 255, 0), 2, cv2.LINE_AA)
 
                 # Convert image to RGB for Streamlit display
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)

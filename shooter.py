@@ -82,6 +82,20 @@ def detect_gesture(frame, landmark_list, processed):
             cv2.putText(frame, "Screenshot Taken", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
 def shooter():
+    st.markdown("""
+                <style>
+        div.stButton > button {
+            height: 70px;
+            font-size: 30px;
+        }
+        </style>""", unsafe_allow_html=True)
+    st.sidebar.title("Cam-X Controller :video_game:")
+    home_button=st.sidebar.button("Home",use_container_width=True,type="primary")
+     
+
+    if home_button:
+        st.session_state.page="web"
+        st.rerun()
     st.title("shooter Controller")
     
     
