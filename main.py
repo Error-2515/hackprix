@@ -1,6 +1,8 @@
 import streamlit as st
 import about as ab
-import settings as se
+import steering as sg
+import developers as de
+
 
 if "page" not in st.session_state:
     st.session_state.page = 'web'
@@ -9,19 +11,19 @@ st.set_page_config(
     page_title="Cam-X",
     page_icon=":video_game:",
     layout="centered",
-    initial_sidebar_state="collapsed",  
+    initial_sidebar_state="expanded",  
 )
-
-if st.session_state.page == 'web':
+def web():
     st.sidebar.title("Cam-X Controller :video_game:")
-    About_button=st.sidebar.button("About",use_container_width=True)
-    settings_button=st.sidebar.button("Settings",use_container_width=True)
+    About_button=st.sidebar.button("About Project",use_container_width=True)
+     
+    dev_button=st.sidebar.button("About Developers",use_container_width=True)
     
     if About_button:
         st.session_state.page="about"
         st.rerun()
-    if settings_button:
-        st.session_state.page="settings"
+    if dev_button:
+        st.session_state.page="developers"
         st.rerun()
 
     # Use st.markdown to render the custom HTML and CSS for video background
@@ -38,7 +40,10 @@ if st.session_state.page == 'web':
         </style>""", unsafe_allow_html=True)
     with col1:
         st.subheader("Virtual Wheel:")
-        st.button("Start Virtual Wheel", type="primary",use_container_width=True)
+        wheel_button=st.button("Start Virtual Wheel", type="primary",use_container_width=True)
+        if wheel_button:
+            st.session_state.page="steering"
+            st.rerun()
         st.markdown("""<p>Take control with our virtual steering
                     wheel, crafted using advanced technology
                     like OpenCV and MediaPipe. Navigate
@@ -56,12 +61,15 @@ if st.session_state.page == 'web':
                     Immerse yourself in dynamic gameplay as you wield
                     virtual firepower with precision and realism, bringing gaming
                     to a whole new level of immersion.</p>""",unsafe_allow_html=True)
+if st.session_state.page == 'web':
+    web()
         
 if st.session_state.page=="about":
     ab.about()
 
-if st.session_state.page=="settings":
-    se.settings()
-        
 
+if st.session_state.page=="steering":
+    sg.steering()
 
+if st.session_state.page=="developers":
+    de.dev()
